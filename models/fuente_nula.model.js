@@ -37,11 +37,11 @@ export default class FuenteInformacionMemoriaNula {
       };
 
     let s = probability.reduce(
-      (acumulate, current) => acumulate + current * 100000,
+      (acumulate, current) => acumulate + current * 100000000,
       0
     );
 
-    if (s / 100000 !== 1)
+    if (s / 100000000 !== 1)
       throw {
         message: "La sumatoria de probabilidades deberia ser 1",
         type: "Entrada no valida",
