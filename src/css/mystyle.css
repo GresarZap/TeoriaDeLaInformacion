@@ -18,6 +18,7 @@ body {
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
+  min-width: 100vw;
   font-family: "Oxygen", sans-serif;
   font-weight: 700;
 }
@@ -60,4 +61,80 @@ ul li {
 ul li:hover {
   background-color: #a8eb1270;
   color: #051937;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* form */
+
+form {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 4.5rem;
+  position: relative;
+  overflow: hidden;
+  min-width: 300px;
+  max-width: 600px;
+  width: 90vw;
+  border: none;
+  box-shadow: 6px 6px 2px #004d7a40;
+  transition: height 1s;
+}
+
+form h2 {
+  background-color: #004d7ac0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.6rem 1.5rem;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+form label {
+  padding-bottom: 0.5rem;
+  color: #004d7ac0;
+}
+
+form input {
+  border-radius: 5px;
+  border: none;
+  background-color: #00bf7230;
+  color: #004d7a;
+  font-size: 1.5rem;
+  padding: 0.3rem 0.2rem;
+}
+
+form input:focus {
+  outline: 2px solid #004d7ac0;
+}
+
+p.message {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  color: #7a0000;
+  font-weight: 500;
+  font-size: 0.8rem;
+  transition: height 1s;
+}
+
+button#send {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  font-size: 1.5rem;
+  color: #004d7a;
+  font-weight: 600;
+  background-color: #a8eb12;
+  border: none;
 }
