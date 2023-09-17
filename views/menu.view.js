@@ -4,7 +4,7 @@ export default class MenuView {
     this.renderView = this.renderView.bind(this);
     this.renderList = this.renderList.bind(this);
     this.menu = null;
-    this.requestView("../views/menu.html", this.renderView);
+    this.requestView("./views/menu.html", this.renderView);
   }
 
   set setMenu(menu) {
