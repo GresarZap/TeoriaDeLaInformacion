@@ -2,7 +2,7 @@ export default class FuenteInformacionMemoriaNulaView {
   constructor(controller) {
     this.controller = controller;
     this.renderView = this.renderView.bind(this);
-    this.requestView("../views/fuente_nula.html", this.renderView);
+    this.requestView("./views/fuente_nula.html", this.renderView);
   }
 
   requestView(url, callback) {
