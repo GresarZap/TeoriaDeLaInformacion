@@ -26,13 +26,17 @@ body {
 header {
   min-width: 100vw;
   position: relative;
+  top: 0;
+  left: 0;
 }
 
 menu {
-  background-color: #05193725;
-  position: relative;
+  background-color: #05193785;
+  width: 100vw;
+  position: fixed;
   top: -100vh;
   transition: top 0.4s;
+  z-index: 2;
 }
 
 menu ul {
@@ -42,7 +46,6 @@ menu ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 menu.is-active {
@@ -56,6 +59,7 @@ ul li {
   width: 100%;
   text-align: center;
   color: #e8e8e8;
+  cursor: pointer;
 }
 
 ul li:hover {
@@ -66,6 +70,7 @@ ul li:hover {
 main {
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
 /* form */

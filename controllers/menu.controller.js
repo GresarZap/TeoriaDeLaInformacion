@@ -1,3 +1,6 @@
+import FIMNModel from "../models/fuente_nula.model.js";
+import FIMNController from "../controllers/fuente_nula.controller.js";
+import FIMNView from "../views/fuente_nula.view.js";
 import MenuView from "../views/menu.view.js";
 
 export default class MenuController {
@@ -14,6 +17,10 @@ export default class MenuController {
       e.preventDefault();
       this.clickHandleButton();
     }
+    if (e.target.matches("menu ul li")) {
+      e.preventDefault();
+      this.clickHandleItem(e.target.innerText);
+    }
   }
 
   clickHandleButton() {
@@ -26,6 +33,20 @@ export default class MenuController {
     } else {
       $menu.classList.remove("is-active");
       $button.classList.remove("is-active");
+    }
+  }
+
+  clickHandleItem(selection) {
+    this.clickHandleButton();
+    switch (selection) {
+      case "Fuente de Memoria Nula":
+        const model = new FIMNModel();
+        const controller = new FIMNController(model);
+        const view = new FIMNView(controller);
+        break;
+
+      default:
+        break;
     }
   }
 }
