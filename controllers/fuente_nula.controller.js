@@ -17,6 +17,7 @@ export default class FuenteInformacionMemoriaNulaController {
     let er = /(-{0,1}[0-1].[0-9]*),*\s{0,1}/g;
     const $input = document.querySelector("#probabilities");
     const $message = document.querySelector("p#probabilities");
+    const $solution = document.querySelector("#solution");
     const input = $input.value;
     if (!er.test(input)) {
       $message.innerText = "Recuerda ingresar en el formato indicado.";
@@ -38,6 +39,9 @@ export default class FuenteInformacionMemoriaNulaController {
       try {
         const f1 = new FIMN();
         f1.setProbability = probabilities;
+        $solution.innerHTML = f1.toHtml("Solucion");
+        $solution.classList.remove("hidden");
+        $solution.scrollIntoView({ behavior: "smooth" });
       } catch (err) {
         $message.innerText = err.message;
       }

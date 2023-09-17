@@ -66,4 +66,40 @@ export default class FuenteInformacionMemoriaNula {
         0
       );
   }
+
+  toHtml(title) {
+    let output = `
+    <h3>${title}</h3>`;
+
+    let table = `<table>
+            <thead>
+                <tr>
+                    <th>S</th>
+                    <th>P</th>
+                </tr>
+            </thead>
+            <tbody>`;
+
+    const a = this.getAlphabet;
+    const p = this.getProbability;
+    let data = ``;
+
+    for (let index = 0; index < a.length; index++) {
+      const element = a[index];
+      data += `<tr>
+                    <td>${a[index]}</td>
+                    <td>${p[index]}</td>
+                </tr>`;
+    }
+
+    table += data;
+    table += "</tbody>";
+
+    output += table;
+    output += "</table>";
+
+    output += `<p>H<sub>2</sub>(S) = ${this.entropia(2)}</p>`;
+
+    return output;
+  }
 }
