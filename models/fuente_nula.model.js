@@ -37,11 +37,11 @@ export default class FuenteInformacionMemoriaNula {
       };
 
     let s = probability.reduce(
-      (acumulate, current) => acumulate + current * 100000000,
+      (acumulate, current) => acumulate + current * 1000000000000000,
       0
     );
 
-    if (s / 100000000 !== 1)
+    if (s / 1000000000000000 !== 1)
       throw {
         message: "La sumatoria de probabilidades deberia ser 1",
         type: "Entrada no valida",
@@ -98,7 +98,7 @@ export default class FuenteInformacionMemoriaNula {
     output += table;
     output += "</table>";
 
-    output += `<p>H<sub>2</sub>(S) = ${this.entropia(2)}</p>`;
+    output += `<p>H<sub>2</sub>(S) = ${this.entropia(2)} bit(s)</p>`;
 
     return output;
   }
