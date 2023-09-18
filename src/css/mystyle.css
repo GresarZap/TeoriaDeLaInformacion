@@ -108,6 +108,7 @@ form h2 {
 }
 
 form label {
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   color: #004d7ac0;
 }
@@ -123,6 +124,11 @@ form input {
 
 form input:focus {
   outline: 2px solid #004d7ac0;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  background-color: #004d7a; /* Cambiar color del fondo del control deslizante */
+  width: 50px;
 }
 
 p.message {
@@ -144,6 +150,7 @@ button#send {
   font-weight: 600;
   background-color: #a8eb12;
   border: none;
+  cursor: pointer;
 }
 
 /* section solution */

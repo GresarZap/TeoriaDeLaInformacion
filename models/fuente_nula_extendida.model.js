@@ -6,6 +6,25 @@ export default class FuenteInformacionMemoriaNulaExtendida extends FMN {
   }
 
   fuenteExtendida(n) {
+    if (isNaN(n))
+      throw {
+        message: `Debes ingresar un numero.`,
+        type: "Entrada invalida",
+      };
+    if (n < 0) {
+      throw {
+        message: `La extension "${n}" debe ser mayor o igual a 1.`,
+        type: "Entrada invalida",
+      };
+    } else {
+      let temp = Math.floor(n);
+      if (temp !== n)
+        throw {
+          message: `La extension "${n}" debe ser un numero entero.`,
+          type: "Entrada invalida",
+        };
+    }
+
     const p = [];
     let simbolos = Array(this.getProbability.length);
     simbolos.fill(0);

@@ -1,6 +1,9 @@
 import FIMNModel from "../models/fuente_nula.model.js";
 import FIMNController from "../controllers/fuente_nula.controller.js";
 import FIMNView from "../views/fuente_nula.view.js";
+import FIMNEModel from "../models/fuente_nula_extendida.model.js";
+import FIMNEController from "../controllers/fuente_nula_extendida.controller.js";
+import FIMNEView from "../views/fuente_nula_extendida.view.js";
 import MenuView from "../views/menu.view.js";
 
 export default class MenuController {
@@ -43,6 +46,11 @@ export default class MenuController {
         const model = new FIMNModel();
         const controller = new FIMNController(model);
         const view = new FIMNView(controller);
+        break;
+      case "Fuente de Memoria Nula Extendida":
+        const model2 = new FIMNEModel();
+        const controller2 = new FIMNEController(model2);
+        const view2 = new FIMNEView(controller2);
         break;
 
       default:
