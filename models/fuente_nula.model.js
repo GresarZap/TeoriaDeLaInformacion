@@ -10,6 +10,7 @@ export default class FuenteInformacionMemoriaNula {
 
   set setAlphabet(alphabet) {
     let l = this.getProbability.length;
+    //si es un boolean, agrega un alphabeto por defecto
     if (typeof alphabet === "boolean") {
       for (let index = 0; index < l; index++)
         this.alphabet.push(`s${index + 1}`);
@@ -30,24 +31,28 @@ export default class FuenteInformacionMemoriaNula {
   }
 
   set setProbability(probability) {
-    if (probability.some((value) => value < 0))
+    //no negativos
+    if (probability.some((value) => math.isNegative(value)))
       throw {
-        message: "Las probabilidades deben ser mayores o iguales a 1",
+        message: "Las probabilidades deben ser mayores o iguales a 0",
         type: "Entrada no valida",
       };
 
+    //suma de probabilidades 1
     let s = probability.reduce(
-      (acumulate, current) => acumulate + current * 1000000000000000,
-      0
+      (acumulate, current) =>
+        math.evaluate(`${acumulate}+${current}`).toString(),
+      "0"
     );
 
-    if (s / 1000000000000000 !== 1)
+    if (s !== "1")
       throw {
         message: "La sumatoria de probabilidades deberia ser 1",
         type: "Entrada no valida",
       };
     this.probability = [...probability];
 
+    //alphabet no definido, creamos uno generico
     if (this.alphabet.length === 0) this.setAlphabet = true;
   }
 
@@ -58,13 +63,20 @@ export default class FuenteInformacionMemoriaNula {
         type: "Entrada no valida",
       };
     }
-    return this.getProbability
-      .filter((value) => value != 0)
-      .reduce(
-        (acumulate, current) =>
-          acumulate - (current * Math.log(current)) / Math.log(base),
-        0
-      );
+    return math.round(
+      this.getProbability
+        .filter((value) => value != "0")
+        .reduce(
+          (acumulate, current) =>
+            math
+              .evaluate(
+                `${acumulate} - (${current}*log(${current}) / log(${base}))`
+              )
+              .toString(),
+          "0"
+        ),
+      10
+    );
   }
 
   toHtml(title) {
@@ -88,7 +100,7 @@ export default class FuenteInformacionMemoriaNula {
       const element = a[index];
       data += `<tr>
                     <td>${a[index]}</td>
-                    <td>${p[index]}</td>
+                    <td>${math.round(p[index], 10)}</td>
                 </tr>`;
     }
 

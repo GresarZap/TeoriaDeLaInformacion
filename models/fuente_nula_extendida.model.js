@@ -41,7 +41,7 @@ export default class FuenteInformacionMemoriaNulaExtendida extends FMN {
       let prob = 1;
       let symb = "";
       element.forEach((index) => {
-        prob = (prob * (pa[index - 1] * 10000000)) / 10000000;
+        prob = math.evaluate(`${prob} * ${pa[index - 1]}`).toString();
         symb += `s${index}`;
       });
       symbols.push(symb);

@@ -30,7 +30,8 @@ export default class FuenteInformacionMemoriaNulaController {
       const probabilities = [];
 
       while (probability) {
-        probabilities.push(Number.parseFloat(probability[1]));
+        // probabilities.push(Number.parseFloat(probability[1]));
+        probabilities.push(probability[1]);
         probability = er.exec(input);
       }
 
