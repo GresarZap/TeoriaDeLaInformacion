@@ -63,20 +63,17 @@ export default class FuenteInformacionMemoriaNula {
         type: "Entrada no valida",
       };
     }
-    return math.round(
-      this.getProbability
-        .filter((value) => value != "0")
-        .reduce(
-          (acumulate, current) =>
-            math
-              .evaluate(
-                `${acumulate} - (${current}*log(${current}) / log(${base}))`
-              )
-              .toString(),
-          "0"
-        ),
-      10
-    );
+    return this.getProbability
+      .filter((value) => value != "0")
+      .reduce(
+        (acumulate, current) =>
+          math
+            .evaluate(
+              `${acumulate} - (${current}*log(${current}) / log(${base}))`
+            )
+            .toString(),
+        "0"
+      );
   }
 
   toHtml(title) {
@@ -100,7 +97,7 @@ export default class FuenteInformacionMemoriaNula {
       const element = a[index];
       data += `<tr>
                     <td>${a[index]}</td>
-                    <td>${math.round(p[index], 10)}</td>
+                    <td>${p[index]}</td>
                 </tr>`;
     }
 
